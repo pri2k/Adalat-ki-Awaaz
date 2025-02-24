@@ -1,6 +1,6 @@
 # Adalat ki Awaaz
 
-Adalat ki Awaaz is a project aimed at gathering, processing, and presenting news data—potentially focusing on topics related to justice and legal affairs. The repository primarily uses Python with supplementary components in C, Cuda, HTML, JavaScript, and Cython to achieve optimized performance and versatile functionality.
+Adalat ki Awaaz is a project aimed at gathering, processing, and presenting news data—potentially focusing on topics related to justice and legal affairs. The repository primarily uses Python with supplementary components in Django and Hugging Face Transformers to achieve optimized performance and versatile functionality.
 
 ## Table of Contents
 
@@ -20,16 +20,25 @@ Adalat ki Awaaz is designed to be a dynamic platform for news aggregation and pr
 ## Features
 
 - **News Aggregation:** Scrapes and processes news data from various sources.
-- **Data Processing:** Utilizes Python along with performance-enhancing modules (C, Cuda, Cython) for efficient data handling.
+- **Search Optimization:** Utilizes NLTK for keyword extraction, tags, and other techniques to improve searchability.
+- **Metadata Extraction:** Tokenizes articles to extract keywords and generate metadata.
+- **Automated Tagging:** Converts extracted metadata into key-value pairs for structured tagging.
+- **Summarization:** Uses the BART model to generate concise summaries of articles.
+- **Translation:** Implements the NLLB model to translate summaries into Hindi, Bangla, and Telugu.
+- **Automated Publishing:** Publishes processed articles to WordPress via `wordpress_xmlrpc`.
+- **Data Processing:** Utilizes Python along with performance-enhancing modules (C, CUDA, Cython) for efficient data handling.
 - **Modular Architecture:** Designed for easy integration of additional features and improvements.
 - **Future Enhancements:** Plans for advanced analytics and reporting to further empower users with actionable insights.
 
 ## Technologies
 
 - **Python:** Primary language for developing core functionalities.
-- **C / Cython:** For performance-critical modules.
-- **Cuda:** To leverage GPU acceleration in data processing.
-- **HTML & JavaScript:** For any web-based components or interfaces.
+- **Django:** Robust backend framework.
+- **Hugging Face Transformers:** DL model deployment and pipelining.
+- **NLTK:** Natural Language Processing for keyword extraction and tagging.
+- **BART:** Summarization model.
+- **NLLB:** Translation model for multilingual content.
+- **WordPress XML-RPC:** Automated publishing to WordPress.
 
 ## Installation
 
