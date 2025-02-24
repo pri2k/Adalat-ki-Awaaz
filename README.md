@@ -1,6 +1,6 @@
 # Adalat ki Awaaz
 
-Adalat ki Awaaz is an autonomous AI agent designed to search, summarize, optimize, and publish news content on various topics, including current events, crime, sports, and politics. It ensures SEO-optimized, structured, and multilingual content delivery with fully automated publishing.
+Adalat ki Awaaz is an autonomous AI agent designed to search, summarize, optimize, and publish news content on Indian law and judicial rulings. It ensures SEO-optimized, structured, and multilingual content delivery with fully automated publishing.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Adalat ki Awaaz is an autonomous AI agent designed to search, summarize, optimiz
 
 ## Introduction
 
-Adalat ki Awaaz is built to autonomously aggregate, process, and publish news articles. It employs advanced AI techniques to fetch articles, generate structured summaries, optimize content for search engines, and publish seamlessly without human intervention. This solution aligns with the Flipr Hackathon 25 problem statement, focusing on automation, multilingual support, and SEO optimization.
+Adalat ki Awaaz is built to autonomously aggregate, process, and publish news articles. It employs advanced AI techniques to fetch articles, generate structured summaries, optimize content for search engines, and publish seamlessly without human intervention. This project focuses on automation, multilingual support, and SEO optimization.
 
 ## Features
 
