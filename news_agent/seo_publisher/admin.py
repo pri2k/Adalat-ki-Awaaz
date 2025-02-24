@@ -3,7 +3,5 @@ from .models import Article
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'publish_date', 'court', 'summary', 'url')  # Customize columns
+    list_display = ('title', 'publish_date', 'court', 'summary', 'url')  
 
-# Or, simply:
-# admin.site.register(Article)
