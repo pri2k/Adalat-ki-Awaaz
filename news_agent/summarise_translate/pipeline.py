@@ -2,7 +2,7 @@ import pandas as pd
 from transformers import pipeline
 
 translator = pipeline("translation", model="facebook/nllb-200-distilled-600M")
-summarizer = pipeline("translation")
+summarizer = pipeline("summarization")
 
 
 tgt_langs = ["hin_Deva", "ben_Beng", "tel_Telu"]
