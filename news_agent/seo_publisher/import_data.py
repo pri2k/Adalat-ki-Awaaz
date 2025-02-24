@@ -8,7 +8,7 @@ import pytz
 def parse_publish_date(date_str):
     if not date_str or date_str.lower() == "not found":
         print(f"Replacing missing/invalid publish_date: {date_str} with current date.")
-        return make_aware(datetime.now(), pytz.UTC)  # Use current date if missing or invalid
+        return make_aware(datetime.now(), pytz.UTC)  
 
     formats = ["%d %b %Y %I:%M %p", "%Y-%m-%d", "%d %b %Y"]
     
@@ -27,23 +27,22 @@ def import_csv(file_path):
         reader = csv.DictReader(file)
 
         for row in reader:
-            # Mapping new column names
+          
             title = row.get("title", "").strip()
-            court = row.get("court", "").strip()  # New field
-            summary = row.get("summary", "").strip()  # New field
-            url = row.get("url", "").strip()  # Changed from "url" to "url"
-            publish_date_str = row.get("date", "").strip()  # "date" instead of "publish_date"
+            court = row.get("court", "").strip()  
+            summary = row.get("summary", "").strip()  
+            url = row.get("url", "").strip() 
+            publish_date_str = row.get("date", "").strip() 
             publish_date = parse_publish_date(publish_date_str)
 
             if not title:
                 print(f"Skipping row due to missing title: {row}")
                 continue
 
-            # Save the article in the database
             Article.objects.create(
                 title=title,
-                court=court,  # New field
-                summary=summary,  # New field
+                court=court, 
+                summary=summary, 
                 url=url,
                 publish_date=publish_date
             )
