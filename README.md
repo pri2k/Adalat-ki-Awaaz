@@ -1,6 +1,6 @@
 # Adalat ki Awaaz
 
-Adalat ki Awaaz is a project aimed at gathering, processing, and presenting news data—potentially focusing on topics related to justice and legal affairs. The repository primarily uses Python with supplementary components in Django and Hugging Face Transformers to achieve optimized performance and versatile functionality.
+Adalat ki Awaaz is an autonomous AI agent designed to search, summarize, optimize, and publish news content on various topics, including current events, crime, sports, and politics. It ensures SEO-optimized, structured, and multilingual content delivery with fully automated publishing.
 
 ## Table of Contents
 
@@ -15,30 +15,27 @@ Adalat ki Awaaz is a project aimed at gathering, processing, and presenting news
 
 ## Introduction
 
-Adalat ki Awaaz is designed to be a dynamic platform for news aggregation and processing. While the current structure includes components such as the `news_agent` (suggesting web scraping and data handling capabilities), the project is set to evolve with additional features that could help users stay informed on legal and justice-related topics.
+Adalat ki Awaaz is built to autonomously aggregate, process, and publish news articles. It employs advanced AI techniques to fetch articles, generate structured summaries, optimize content for search engines, and publish seamlessly without human intervention. This solution aligns with the Flipr Hackathon 25 problem statement, focusing on automation, multilingual support, and SEO optimization.
 
 ## Features
 
-- **News Aggregation:** Scrapes and processes news data from various sources.
-- **Search Optimization:** Utilizes NLTK for keyword extraction, tags, and other techniques to improve searchability.
-- **Metadata Extraction:** Tokenizes articles to extract keywords and generate metadata.
-- **Automated Tagging:** Converts extracted metadata into key-value pairs for structured tagging.
-- **Summarization:** Uses the BART model to generate concise summaries of articles.
-- **Translation:** Implements the NLLB model to translate summaries into Hindi, Bangla, and Telugu.
-- **Automated Publishing:** Publishes processed articles to WordPress via `wordpress_xmlrpc`.
-- **Data Processing:** Utilizes Python along with performance-enhancing modules (C, CUDA, Cython) for efficient data handling.
-- **Modular Architecture:** Designed for easy integration of additional features and improvements.
-- **Future Enhancements:** Plans for advanced analytics and reporting to further empower users with actionable insights.
+- **Automated Web Crawling & Data Extraction**: Fetches news articles from reliable sources and classifies them into sub-topics.
+- **Summarization & Content Generation**: Uses BART for summarization to create concise, well-structured articles.
+- **SEO Optimization**: Enhances discoverability with keyword extraction, metadata generation, and readability improvements using NLTK.
+- **Metadata Extraction & Tagging**: Tokenizes articles to extract keywords and generates structured key-value metadata pairs for tagging.
+- **Multilingual Support**: Uses NLLB to translate summaries into Hindi, Bangla, and Telugu for wider accessibility.
+- **Automated Publishing**: Publishes articles to WordPress autonomously via `wordpress_xmlrpc`, ensuring seamless content deployment.
+- **Scalability & Modular Architecture**: Easily extendable for additional features like analytics and user engagement tracking.
 
 ## Technologies
 
-- **Python:** Primary language for developing core functionalities.
-- **Django:** Robust backend framework.
-- **Hugging Face Transformers:** DL model deployment and pipelining.
-- **NLTK:** Natural Language Processing for keyword extraction and tagging.
-- **BART:** Summarization model.
-- **NLLB:** Translation model for multilingual content.
-- **WordPress XML-RPC:** Automated publishing to WordPress.
+- **Python**: Core language for development.
+- **Django**: Backend framework for API and data handling.
+- **Hugging Face Transformers**: Model deployment for summarization and translation.
+- **NLTK**: Keyword extraction and search optimization.
+- **BART**: Used for article summarization.
+- **NLLB**: Enables multilingual translations.
+- **WordPress XML-RPC**: Automates article publishing.
 
 ## Installation
 
@@ -70,40 +67,36 @@ Adalat ki Awaaz is designed to be a dynamic platform for news aggregation and pr
 
 4. **Install Dependencies:**
 
-   If a `requirements.txt` file is provided, install dependencies with:
-
    ```bash
    pip install -r requirements.txt
    ```
 
-   *(If no `requirements.txt` is present, please refer to the project documentation or add your necessary packages.)*
-
 ## Usage
 
-To start using the project, navigate to the directory containing the main script (for example, the `news_agent` folder) and run:
+To start the autonomous agent, run:
 
 ```bash
 python main.py
 ```
 
-Further usage instructions and configuration options will be added as the project matures.
+The system will automatically fetch news, summarize content, optimize for SEO, translate, and publish articles to WordPress.
 
 ## Contributing
 
-Contributions are highly welcome! To contribute:
+Contributions are welcome! Follow these steps:
 
 1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
+2. Create a feature branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -m 'Add feature'`).
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 
-Please open an issue before making major changes to discuss your ideas.
+Please open an issue before making major changes to discuss ideas.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
-For more details, updates, and news, please visit our official website: [Adalat ki Awaaz](https://adalatkiawaaz.wordpress.com).
+For updates and details, visit: [Adalat ki Awaaz](https://adalatkiawaaz.wordpress.com).
