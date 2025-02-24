@@ -10,7 +10,7 @@ results = []
 
 
 for index, text in enumerate(df["content"]):
-      summary = summarizer(text, max_length=512)[0]["translation_text"]
+      summary = summarizer(text, max_length=512)[0]["summary_text"]
       translations = {}
       for lang in tgt_langs:
           result = translator(summary, src_lang="eng_Latn", tgt_lang=lang, max_length=512)
