@@ -50,3 +50,5 @@ def optimize_articles():
 
     print("SEO optimization completed!")
 
+    return articles
+

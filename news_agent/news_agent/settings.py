@@ -27,6 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
+
+# WordPress Credentials
+WORDPRESS_URL = os.getenv('WORDPRESS_URL')
+WORDPRESS_USERNAME = os.getenv('WORDPRESS_USERNAME')
+WORDPRESS_PASSWORD = os.getenv('WORDPRESS_PASSWORD')
+
+
 
 # Application definition
 
