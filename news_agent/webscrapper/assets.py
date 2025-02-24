@@ -72,3 +72,14 @@ def extract_data(find_more_urls: list) -> list:
         })
 
     return data
+
+@asset
+def save_data(extract_data: list) -> str:
+    """
+    Saves extracted data to a JSON file and returns a success message.
+    """
+    output_path = "judgments.json"
+    with open(output_path, "w") as f:
+        json.dump(extract_data, f, indent=4)
+    return f"Data saved to {output_path}"
+
