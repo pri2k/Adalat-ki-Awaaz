@@ -15,7 +15,7 @@ def parse_publish_date(date_str):
     for fmt in formats:
         try:
             dt = datetime.strptime(date_str, fmt)
-            return make_aware(dt, pytz.UTC)  # Convert to timezone-aware datetime
+            return make_aware(dt, pytz.UTC)  
         except ValueError:
             continue
 
@@ -23,7 +23,7 @@ def parse_publish_date(date_str):
     return make_aware(datetime.now(), pytz.UTC)
 
 def import_csv(file_path):
-    with open(file_path, mode="r", encoding="utf-8-sig") as file:  # Use utf-8-sig to remove BOM
+    with open(file_path, mode="r", encoding="utf-8-sig") as file: 
         reader = csv.DictReader(file)
 
         for row in reader:
