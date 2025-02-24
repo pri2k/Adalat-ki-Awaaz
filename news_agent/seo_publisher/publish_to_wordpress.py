@@ -17,7 +17,7 @@ def generate_meta_description(article):
 
 def publish_to_wordpress():
     try:
-        # Load credentials securely from Django settings
+    
         wp_url = settings.WORDPRESS_URL
         wp_username = settings.WORDPRESS_USERNAME
         wp_password = settings.WORDPRESS_PASSWORD
@@ -39,20 +39,17 @@ def publish_to_wordpress():
             }
             post.post_status = 'publish'
 
-            # Publish post
             post_id = wp.call(NewPost(post))
             
-            # Add SEO metadata
             seo_metadata = {
                 'seo_title': generate_seo_title(article),
                 'meta_description': generate_meta_description(article),
-                'canonical_url': article.url  # Link to the original source
+                'canonical_url': article.url 
             }
             
             for key, value in seo_metadata.items():
                 wp.call(EditPost(post_id, {'custom_fields': [{'key': key, 'value': value}]}))
 
-            # Mark the article as published
             article.published = True
             article.save()
             print(f"✅ Published: {article.title}")
