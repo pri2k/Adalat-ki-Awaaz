@@ -1,8 +1,19 @@
 import os
 from wordpress_xmlrpc import Client, WordPressPost
-from wordpress_xmlrpc.methods.posts import NewPost
+from wordpress_xmlrpc.methods.posts import NewPost, EditPost
+from wordpress_xmlrpc.methods import posts
 from seo_publisher.models import Article
 from django.conf import settings
+
+def generate_seo_title(article):
+    """Generate an SEO-friendly title, including the court name if available."""
+    if article.court:
+        return f"{article.title} - {article.court} Ruling"
+    return f"{article.title} - Legal Update"
+
+def generate_meta_description(article):
+    """Generate an SEO-optimized meta description from the summary."""
+    return article.summary[:160] if article.summary else "Latest legal updates and news."
 
 def publish_to_wordpress():
     try:
@@ -11,23 +22,37 @@ def publish_to_wordpress():
         wp_username = settings.WORDPRESS_USERNAME
         wp_password = settings.WORDPRESS_PASSWORD
 
-        # Connect to WordPress
         wp = Client(wp_url, wp_username, wp_password)
 
-        # Get unpublished articles
         articles = Article.objects.filter(published=False)
         for article in articles:
             post = WordPressPost()
-            post.title = article.title
-            post.content = article.content
+            post.title = generate_seo_title(article)  
+            post.content = f"<p><strong>Court:</strong> {article.court or 'Not specified'}</p>" \
+                           f"<p>{article.summary}</p>" \
+                           f"<p>🔗 <a href='{article.url}' target='_blank'>Read full case</a></p>"
+
+
             post.terms_names = {
-                'category': ['General'],
-                'post_tag': ['News']
+                'category': ['Legal Updates'],
+                'post_tag': [article.court or 'Unknown Court', 'Legal News', 'Latest']
             }
             post.post_status = 'publish'
 
             # Publish post
-            wp.call(NewPost(post))
+            post_id = wp.call(NewPost(post))
+            
+            # Add SEO metadata
+            seo_metadata = {
+                'seo_title': generate_seo_title(article),
+                'meta_description': generate_meta_description(article),
+                'canonical_url': article.url  # Link to the original source
+            }
+            
+            for key, value in seo_metadata.items():
+                wp.call(EditPost(post_id, {'custom_fields': [{'key': key, 'value': value}]}))
+
+            # Mark the article as published
             article.published = True
             article.save()
             print(f"✅ Published: {article.title}")
